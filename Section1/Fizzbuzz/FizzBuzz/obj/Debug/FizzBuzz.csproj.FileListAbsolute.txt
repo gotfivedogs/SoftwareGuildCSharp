@@ -1,1 +1,8 @@
 D:\Git\Curriculum\dotnet\ObjectOrientedProgramming\01-Basics\Assessments\FizzBuzz\Start\FizzBuzz\bin\Debug\FizzBuzz.exe.config
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\Fizzbuzz\FizzBuzz\bin\Debug\FizzBuzz.exe.config
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\Fizzbuzz\FizzBuzz\bin\Debug\FizzBuzz.exe
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\Fizzbuzz\FizzBuzz\bin\Debug\FizzBuzz.pdb
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\Fizzbuzz\FizzBuzz\obj\Debug\FizzBuzz.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\Fizzbuzz\FizzBuzz\obj\Debug\FizzBuzz.exe
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\Fizzbuzz\FizzBuzz\obj\Debug\FizzBuzz.pdb
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\Fizzbuzz\FizzBuzz\obj\Debug\FizzBuzz.csprojResolveAssemblyReference.cache
