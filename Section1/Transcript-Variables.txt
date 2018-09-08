@@ -1,0 +1,36 @@
+Now that we have a grasp of the predefined types that are available as building blocks, we need to talk about how to load them into memory so our program can make use of them. One of the reasons languages like C-sharp and Java perform so well is because types can be read in advance to optimize memory allocation.
+
+In C-sharp, we can use variables to store and retrieve data in memory. It's oftentimes not enough to write an expression. The runtime will be happy to evaluate that expression but if you don't assign the result of it to anything, it will be discarded. Variables allow us to keep that data around.
+
+The process of creating a variable is called Declaration. To declare a variable, there are two simple steps. First, you have to give the type of the variable. Second, you have to give the variable a name. Names are for other people who are reading our code, not for the computer so be specific.
+
+Abbreviations are typically frowned upon. If you're writing a program to calculate an exponent, which is provided by an integer, don't name your variable ex or exp, name it exponent. In C sharp there are three types of variables, local fields, parameters, and local variables. Which type of variable is in use depends on where it's actually declared.
+
+So let's take a look at this using some sample code. This class has two members. One is a field variable and one is a method, which accepts a parameter. Inside the method, we have a local variable integer. The main difference between these three types of variables, is what we call their scope.
+
+Scope is the word we use to define where a variable can be used, and it's a really important concept. As we dig into the variable types, we'll also highlight the scope boundaries where they can be used. So, let's work from the inside out, with the local variable and the method.
+
+A local variable is a value in the scope of the method, loop, or conditional statement. A local variable is not considered to be an object member because the scope that it can be used in is only where it's declared. You can always look at the curly braces to determine where the scope of a variable is.
+
+Let's look at a method that contains three local variables. The first variable is declared at the method level and so it can be used anywhere in the method. Next we have a conditional, or if statement with a local variable declared inside it. This variable is only valid inside the if statement.
+
+Finally, we have a loop with a variable inside it. As with the others, this variable only has scope inside that loop it is declared in. The next type of variable is a method parameter. Parameters are variables that hold data that we want to pass into the methods for them to use.
+
+Let's take to look at some code. Here we have a method that takes in a string, representing somebody's name. And if it is not null or empty its gonna say hello. The parameter is declared at the method level. Because of this, the scope is the entire method. Notice that it doesn't matter where we are in that method, we could be in the conditional, for example.
+
+The name parameter is available everywhere however, it's only available inside this method. But what if we wanted a variable to be available in more than one member inside that object, not just that one method for example? For this, we can use a field. Here, we have a class called person.
+
+Notice that we've declared a field which is at the class level outside of any of the methods. Fields are usually private and we prefix them with an underscore character, but we'll get to private later. In this case, the scope of our field will be the entire class and we can see the underscore name variable is used in both of the methods.
+
+If we were to create a person object from this class, it would load up that person object with all of its fields and methods and it would put them inside the variable p. Next, let's call the set name method and pass it a name. My favorite name is Eric.
+
+In this case, the string Eric would fall into the name parameter of the method. And then we would store it inside that field. We have to do this to keep it around. Because when this method finishes and that parameter goes out of scope, it's going to be deleted.
+
+But the field is declared at the class level. So, it's gonna hang out as long as that object is in memory which, right now is assigned to the variable p. So now, finally, when we do call the introduce myself method. It's gonna read that string back in from the field and it's gonna print out, hello Eric, since the current value of underscore name is the string Eric.
+
+So at this point, we've demonstrated the three types of variables and we've shown how they're declared. Use a Local Variable when you need storage inside a method, loop, or conditional and it's only needed within that scope where it's declared, and you don't wanna keep it around later. Use a Parameter when other code in your system needs to pass data into the method you use.
+
+Most of the time a parameter can be discarded when you're done and you don't wanna keep it around, however, if you do want it to keep it around and share it among other methods, you can use the field, which is declared at the class level. This means it's available to the entire object and it will be stored for as long as the object is in scope.
+
+Since objects can contain other objects and methods can call methods which can create their own local variables, that have objects that can also call methods etcetera, it's essential that you take the time to understand the three types of variables, how they're declared and when to use them. As with all things, this is gonna require lots of practice.
+

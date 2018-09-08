@@ -1,0 +1,58 @@
+>> Now that we understand types, variables, and flow of control statements like if statements and loops, things start to get interesting. We can start using these building blocks to build more complex code. But one of the biggest mistakes beginning coders make is diving right into code without planning out what they want to do.
+
+Just as a good writer creates an outline, and a home builder works off of a blueprint, a good programmer plans their logic before they begin programming. There are a number of ways to approach this. Some programmers simply write their steps out in English and then cross off the steps as they complete them.
+
+Others write flow charts, which is what we're gonna cover in this video. If you'll recall, we briefly touched on flow charts when we talked about how our co-logic can be structured in a sequence, loop, or branch. There are a ton of flow chart symbols to choose from and if you use a tool like Visio or Lucidchart.
+
+You'll find a bunch in your toolbar. The purpose of flowcharting though, is really just to give you a visual aid for your logic. So personally, I'd recommend using the minimum of added symbols and focusing instead on the logical flow. Flowcharting isn't an exact science, there aren't standards for every possible situation.
+
+So just be guided by your team and your own personal preferences. First, we have the flow line. This is used to indicate the flow of logic. Your code should always travel from one symbol to another, following the arrow. When two lines meet, they're either gonna join together to form a single line.
+
+Meaning that two things have the same result, or in the case where a line crosses another, a bridge will be added so that the two lines can continue on their different paths to different results. If multiple lines go to the same result, the lines will always merge into one.
+
+Next, we have the terminator. The terminator is a cybernetic organism used to infiltrate strongholds of human resistance and assassinate high-value targets. No, wait, sorry. I'm getting my terminators confused. Yeah, that's what I should be talking about. Okay, this terminator is used to indicate the starting or stopping point of a flow chart.
+
+This can be where a method returns or a process ends. Personally, in simple charts, I don't really use these. Instead, just let the reader assume that logic starts at the top most symbol and ends at the bottom. The input/output parallelogram is, surprise, surprise use to indicate the user input and output.
+
+In the programs we've been working with so far, this would represent interaction with the console. The processing symbol is used for math, logical operations, and method calls. These are typically code statements like sending email, checking addresses, debiting accounts. Lastly, we have the decision, which is a diamond. Decisions can have two branches for true or false, yes or no, and so on, but you can also use them to represent some more complex decisions just like you would with the switch statement.
+
+Let's use our newfound knowledge of flow chart symbols to map out the guessing game. In this version of the guessing game, one person will think of a number and a range like 1 to 20. The other person then tries to guess the number. And the first person gives clues of higher or lower until the other person eventually guesses right.
+
+So first, we need to figure out what pieces of data do we need to keep track of. Well, we definitely need a variable for the answer, obviously. And we'll need one for the users input, which is gonna be a straight type census from the console. As we've seen previously, we also need to have the integer conversion of that user input, which we'll refer to as the guess.
+
+So in terms of our process, the first thing we need to do is declare these three variables. Next, we need to have a process where the computer generates a random number for the user to guess. We'll store that in our answer variable. Now we can start taking guesses.
+
+How many times we take a guess is gonna depend on how lucky the user is. So it won't necessarily be the same time from game to game. So let's use a while loop decision, and let's set it to true so that the loop will keep going until we tell it to break.
+
+In the loop, we'll prompt the user for input, and read in their input from the keyboard. This is an input/output process, so we'll use the parallelogram. The first thing we want to know after receiving the input is if the user's entry is actually an integer. So let's use the TryParse on the input.
+
+If it's not, that is, if TryParse returns a false result, we'll send him back to the prompt. If it is, as in true, then we'll check to see if they guessed right. If they did, we can break, show him a victory message, and then end the program. But what if they guess wrong?
+
+Well, in our false condition, let's see if they guess in bounds, in our case, in the range of 1 to 20. If the user didn't guess in that range, we'll display a message, and we'll send them back to the input prompt. If the guess was in bounds, we can then see if the guess was higher than the answer.
+
+If it was, we'll print a message telling them to guess lower and we'll prompt them again. And then lastly, if the guess hasn't been equal to the answer, it is in bounds, and it's not higher, the only other possible option is that the guess was too low. And we need to print the guess higher message and then send them back to the prompt again.
+
+At this point, I think we have a good understanding of how the guessing game works, and we have accounted for the basic needs and possibilities of it. So let's translate it into code. First, we're gonna declare our variables. Answer, input, and guess with the proper types of int, string, and int, respectively.
+
+Next, let's generate our random number and store it in the answer. The random class object can do this for us if we instantiate it, then we're gonna start our loop. We wanted an infinite loop to break out of, so we'll just use the while(true) trick. It's time now to prompt the user and retrieve the input from the console.
+
+So let's use the Console.Write and Console.ReadLine to do that. Now we need to figure out if the user actually entered a number. The TryParse method on an int takes in the string from the console and outputs the guess as an integer only if it's successful. We only want to work with the guess if the parse is successful.
+
+So by throwing an if statement on the front, we can branch to only successful convergence. We don't need an else because the while loop ends and after the if statement, so it is simply just returned to the prompt if the user enters a non-numeric element. Now let's look at what to do if a number is entered.
+
+First we're gonna check if the guess is equal to the answer. If it is they guessed right. And we wanna lead the loop, so let's use our break keyword there. At this point, we can choose which part of the flow chart to follow. I'm just gonna finish our victor logic right now cuz it's convenient.
+
+Let's go outside the while loop and tell them that they guessed right, and then pause for them to hit a key to end the program. Now let's go back in and handle if the guess isn't the answer. First, let's see if they guessed between 1 and 20. So if the guess is less than 1 or it's greater than 20.
+
+Then it's out of bounds and we need to display our out of bounds message. Then use the continue keyword to jump back to the top of the loop which will prompt the user again. If it is in the bounds we'll keep going. So we'll see that the guess is bigger than the answer.
+
+If it is, they need to guess lower. So we'll tell them that, then go back to the top using continue. And then lastly, if none of the previous things were true, then we can just print the higher message, and just let the loop go back to the top on it's own.
+
+No continue is necessary, cuz we're already at the bottom of the loop. It's gonna go back up no matter what. And that's it. Having a logical map to follow like our flow chart makes the writing of the application code much easier and less error prone. When you're a professional programmer, you'll want to create not only the flow charts, but also object diagrams that list out all the fields and methods.
+
+And you're even gonna wanna mock up your front-end screens. All of this documentation is gonna help you organize your thoughts, and also shed light on your logic, and flow to other developers who may be called upon to review or edit your code later. Bottom line, as I often tell my learners if you can't solve the problem on paper, or on the white board, you can't solve it in the code.
+
+Making sure that you can explain in plain English what your program is trying to do, at the very least to yourself, is the essential first step in thinking through coding logic. So it's worth spending the time upfront to really plan things out. It's gonna save you lots of pain and frustration later.
+
+Trust me.
+

@@ -1,0 +1,70 @@
+>> Up to this point we've covered a lot of useful code concepts. We understand how to declare variables of a certain type. We can also control the flow of our programs with conditionals and loops. These structures are all well and good for the smallest programs, but as programs grow in size and complexity we're gonna need to start using methods.
+
+Every programming language has some concept of methods. At their core, methods are named blocks of code that you can execute. Execute is the key concept here. When we say that object oriented programs consist of objects passing messages to each other, the means by which messages are passed are methods, which then execute your codes.
+
+On a conceptual level, I view object oriented programs sort of like neurons in the brain, where each neuron has it's own data that is stores, and then there are branching pathways that the information can travel through. As developers, it's up to us to decide what types of things are stored, and what things need to be sent back and forth to get work done.
+
+Just like when we declare variables, a method has to have a type and a name, but it also can take in zero to many parameters, and optionally have an access modifier. Let's take a look at this in practice. We'll start simple, with a method that doesn't return anything.
+
+We call these, void methods. Just because we have a method, it doesn't necessarily mean that we need to get a response back from it. It's kinda like when you use the remote control for your tv. When you press say, the power button on the remote, it sends a message to the TV commanding it to toggle the power.
+
+But this is one way communication. The tv doesn't send anything back to the remote at all. And you've probably had to hit a button multiple times before. We can actually model the power button functionality on a tv in C# code pretty easily. Here we have a class called television, with a field variable that will store the current state of the power.
+
+On, or off, we can just call that true or false with the boolean. Next, we have our method declaration. In this case, because we want other objects, like our remote control to be able to call or invoke the method, we'll start with the keyword public. Public means that every object in the C# universe can find and call this method.
+
+Next is the return type. In our case, the tv doesn't call back to the remote, so there's no return type. Thus, we write the word void. Then we have the name. In C#, we like to capitalize our method names, and then make them descriptive. I think power is a rather descriptive name for the power toggle command.
+
+But hey, that's just me. After this, we're gonna have parentheses. Parentheses are required. This is where your parameters will go. But we don't need any for this method, so we'll just leave them empty. Lastly, we get to the code block of what we want the method to do.
+
+This is called the method body. In here, we can write any code we like. In our tv remote case, we just wanna turn the tv off if it's on, or turn it on if it's off. Now, it doesn't have to be a simple condition like we have here, inside a method, we could also create other objects, and we could call their methods.
+
+Or as I've said before, we can have objects in objects, all calling each other's methods. This level of complexity is pretty common in an enterprise application. A void method with no parameters, it's pretty straight forward. But a lot of times we're gonna need to send data into a method to help tell it what to do.
+
+In this case we can use parameter variables in our method declaration. Since methods are the way objects send messages to each other, I can't help but think of these method parameters as pieces of information that go in to an envelope for delivery. How about when you use the remote to send a specific channel to your tv?
+
+For that, we need to send the number of the channel that we wanna switch to. So here's some code we could use to do that. Again, we've created a field variable in our class to store the current channel that we've added to the void method, called, Tune. It's still public, because other objects like the remote, should be able to invoke it.
+
+But now, inside our parentheses, we've added an integer parameter, that we've named number. When we push a number key on the remote, it can call the Tune method, and it'll need to provide an integer representing the channel number. Recalling the stack in the heap, let's look at some code and how it will work with memory.
+
+Here, we declare a variable of the type Television, named tv and assign it to a new Television object. So what this does is drop a reference to a tv on the stack, which points to a brand new Television object on the heap. Let's bring up the Television code so we can remember what it looks like.
+
+Now, we'll go deeper into object creation later. But all you need to know for now is that when the Television object is created on the heap, it'll create memory spaces for the field variables and add the methods, Power and Tune, that we have defined on the object instance.
+
+In our television class code, we defaulted our field variables to false and 2. So the heap object will set those as values. The end result in memory looks something like this. The next thing we do is invoke the Power method on the tv instance. This invokes the method on the heap object.
+
+So the method code starts running. First it checks that the value of isOn is true. Currently it's false. So we drop into our else statement, which sets the value of isOn to true. The method is finished now, so we can move on to the the next command, which is to tune the tv to channel five.
+
+Seeing that the tune takes an int parameter called number, the C# run time adds the parameter to the stack int is a value type, so it stays on the stack with no heap object. Since all the parameters are accounted for, the method can now execute. There's only one line of code here, which just stores the value of number in the channel field.
+
+The method then ends, so all the method parameter variables are discarded from the stack. If you recall our lesson on variables, if you want to keep a parameter's value around, you need a field in your object to store it in. We did that here, so when the method is done, the parameter is gone, but the field's value will remain.
+
+Void methods are great for commanding an object to do something. But other times, we want to get information back from the object. For this, we swap out void for a return type. Enough with our television example, it'll rot your brain. Let's consider a new class called the Scheduler.
+
+In this class, we have a method called IsFederalHoliday, whose purpose, given a month and day, is to let the caller know if that day is a federal holiday. Notice that we've changed the return type from void to bool. So, if the parameters given are a holiday, we can expect a true response, and if not, we'll get a false response.
+
+Our method body is a bit long for this one, since there are a few holiday combinations. For our example here, I just wrote in the first few holidays and then wrote etc afterwards to cover the rest of the federal holidays. First of all, take note of the return statements.
+
+In a method, you can use the return keyword to stop executing code and return a value, or in the case of the void method, you can just write return by itself to stop without returning any value at all. This gives you the flexibility to stop your method code whenever you like.
+
+In this case, if we find a holiday combination, there's no reason to keep going. So we can just return and stop.
+>> And now for a special announcement. If you do specify a return type for a method, then no matter what happens branches, loops, etc., you must have a return statement that returns the correct type, or you will get the dreaded, not all code pass return of value error.
+
+And now, back to your regularly scheduled lesson.
+>> Thank you Eric, very true. Okay, back to business. Let's examine some code that invokes the method we were discussing earlier. First, we're gonna need to create an object from the class. Again, we'll use the new keyword and assign it a reference variable on the stack.
+
+Now, unlike the television, this class has no fields. We still get an object on the stack, but all it will have in it is our method. Next we invoke the method inside of our if condition, passing it the parameter values 1 for January and 1 for the first day.
+
+The values get passed to the parameters for the method, which goes on the stack. The method then starts evaluating with the first condition, which happens to be true. So we enter the code block for the if statement which returns a value of true, which gets sent back to where the method was invoked, which is in the if statement call.
+
+Since the value of true came out, the if statement will now run its true block Which will print "Today is a federal holiday" to the console. But wait! Right line is a void method on the console object, which is stored on the heap. So when we invoke a method on it, C# will put that message on the heap as well.
+
+The string message we want sent to print will be sent along as the parameter. I can hear you asking at this point, well aren't you going to show us the right line code? And the answer is no. No I won't. Seriously though, console is built into the .net framework.
+
+It's open source, so I could go look if I really wanted to, but part of the beauty of object oriented programming is that the documentation tells me that the method is going to print the text to the console. And I believe it. I don't really need to care how that works.
+
+Some people might call me lazy, but it's really more about efficiency. Yeah, efficiency. There isn't enough room in anyone's brain to memorize all the code, but remembering a few method names isn't really all that hard. It also drives home how important it is to have good names for your methods and parameters.
+
+The clearer you are about your naming, the less time developers will spend wondering about what it is that your method does or what your parameters mean. To sum up, methods are pretty useful things. They let our objects communicate with each other, whether it's simply sending a command with no return as a void method, getting data back by specifying a return type, or even sending some input as parameters along for the ride if they need them.
+
+We also saw how the Public keyword lets any other objects communicate using our methods. There are several other access modifiers as well, so make sure you check them out in the write ups.
+

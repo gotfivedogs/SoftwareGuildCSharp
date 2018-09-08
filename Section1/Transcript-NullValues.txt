@@ -1,0 +1,38 @@
+>> Let's take a few moments to talk about Null. Null is a special value in C#, and basically what it represents is a reference type variable that does not have an the object on the heap. So it only applies to reference types, that means your ints and your Booleans, they have default values like zero and false.
+
+Reference types default to null, that means the variable is on the stack, but there is no object on the heap to reference. So to demonstrate this, let's just create a class real quick called Person. Classes are reference types. And we'll give it a property called Name. And if I declare a variable of type Person, p currently has a value of null.
+
+It's not assigned, we haven't said p equals new Person, so there's no object actually associated with this variable. So if go to use p, Visual Studio is gonna say, no, you're not allowed to do that, p hasn't actually been assigned anything, it's null. But if I say p = new Person, then it will instantiate the object, put it on the heap, and now I can assign things to it.
+
+And of course, I can print out values from inside that object. So if I run this, you'll see that it will actually print Eric, which is p.Name. And all is well. Now, let's take a look and see what happens if we set p = to null after we instantiate an object.
+
+So what this will do is it'll create the object, and p will will point to that object on the heap. But then when I set p = null, what it does is it deletes the pointer. So now p isn't pointing to anything. And if I go to use p.Name, it's gonna crash.
+
+NullReferenceException was unhandled. And when you're a beginner, you're gonna get a lot of these NullReferenceExceptions, cuz you're gonna forget to instantiate your objects and you're just gonna try to use their properties. Object reference not set to an instance of an object, means that whatever variable you're trying to use, is not actually pointing to an object.
+
+Which means you need to call new on it, or sometimes if you're using a system where you look up a customer by ID, and you put in a bad ID that isn't found, sometimes those systems will return null to basically tell you, hey there's nothing actually associated with this ID.
+
+Now as I mentioned, integers and Booleans, and all the value types, they can't actually be null. So if I try to set x = null when x is an int, it's gonna say hey, I can't convert null to an 'int' because it's a non-nullable value type, not a reference type.
+
+But sometimes we actually want to make these nullable. And let me give you an example. Let's say we have a grade book, and in our grade book we have grades for different assignments. Now, the default value of an int for grade, is going to be zero if it's in one of our objects.
+
+And that's all well and good on the surface, but think about it for a moment. If you have a grade book and you have assignments out into the future, you don't want the assignments that aren't done yet to be zero, because zero has meaning. And you can actually get a zero on an assignment if you don't turn it in, or something like that.
+
+But, if it's in the future, and it hasn't been done, you don't want it to be zero. You want it to be null, because we don't actually know what the value is. Same point with a survey. If you have a survey with a bunch of questions and you're like, how do you feel about this from 1- 5?
+
+But the survey questions aren't required, a person could skip one of the survey questions. Well, you don't want their response to a question they didn't fill in to be a number. You want it to be null because they skipped it, you don't actually know what they put in for that survey amount.
+
+So there's a simple trick. If you want to make one of these value types nullable, all you have to do is put a question mark on the end of the declaration type. And the question mark means make this able to have nulls. So now you can do that.
+
+It's perfectly valid. Now the question people usually have at this point is well, if I'm using a nullable value for grade, how do I know if this actually has an integer in it or if it's null. And there's a property on the nullable type that will let you know this.
+
+You can say if(grade.HasValue). And if that's true, that means that grade does actually have an integer inside it, it is not null. And then people usually try to do this. And C# says no, nullable int is not the same type as int, you can't just assign them like that.
+
+But it does have a property on it called Value, which is grade as an integer. So the only two things you really have to remember when you're using nullable types, put a question mark in front of the value type, and then check to see if it HasValue. And if you want to assign it somewhere else, you just have to call the value property and it'll give it to you.
+
+Another thing that beginners often try to do at this point, is they'll try to take a reference type like a string, and they'll try to make it nullable. And of course Visual Studio won't let you do that either, because string, notice it says it must be a non nullable type in order to use the question mark character.
+
+And strings are reference type, they're stored on the heap, so they are actually null by default. And it's the same thing with all your classes, such as Person, it makes no sense to do that, because the default value is null, you don't need to make it a nullable type.
+
+And that's it. So, I've shown you some of the common members, things that are null by default are reference types. You can make your value types null by adding the question mark. And if you do that you have a couple extra properties that will help you out with parsing and working with your nullable data.
+

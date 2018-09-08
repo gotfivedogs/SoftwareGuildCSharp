@@ -1,0 +1,105 @@
+So have we mentioned yet that types are important?
+>> Yeah, only a few dozen times. It is that important though. You really need a type, and you need a name declared before you can assign any values.
+>> It's not enough, though, just to understand how types are declared.
+
+We also need to know how those variables are gonna be stored in memory.
+>> Absolutely, and so not only is it useful to understand as a C# developer, but it's also a really common conceptual line of questioning in job interviews.
+>> So, there's two key points to memory management in C#.
+
+The first is where we're actually going to physically store things. And we have two choices, the stack or the heap. The second is why something will end up on the stack or the heap. And for that we're gonna have a discussion about reference types or value types. And you can't really talk about one without the other, so we're kinda gonna intermix these things and just flow along with us.
+
+
+>> Okay, well, so let's start with the stack. The stack is what we call a last-in, first out structure. It's often abbreviated as L-I-F-O, or LIFO.
+>> So when someone says stack to me, I think of those plate holders you see at the buffet. I do like to eat a little bit.
+
+So clean dishes are put on top of that stack, and it pushes the existing dishes down. And then when I go to eat, I'm gonna pop a dish off the top.
+>> Right, I mean that's a really good metaphor. In fact, when working with a stack class in .NET, they do actually call the methods for adding and removing things push and pop, respectively.
+
+
+>> And it seems like a stack would be pretty efficient for memory in your program. Cuz as we learned with local variables, if we call a method that has parameters and variables inside it, they will unwind and be removed from memory at the end of the method call.
+
+So in theory, most of the time, the most recent variables you've defined are gonna be the first ones that get ejected at the end. So here, we have a method that takes an integer parameter. Let's say we call this method, and we pass a value of 10 in as the parameter.
+
+This would go onto the stack, and would be joined by the variable b and its value. And then finally, c would be assigned a value from that expression that multiplies b times a. So when the method finishes, the stack would pop all of its values, and the variables would no longer be in scope.
+
+
+>> Exactly. It's even more efficient, because the stack only handles single values.
+>> And this is where value types come in. A value type is actually a really appropriate name because it is a type that only contains a single value.
+>> Well, we learned earlier in this section that there are simple and non-simple primitive types.
+
+So would I be right in assuming that a simple primitive type is a value type?
+>> Absolutely. Simple primitive types are your numeric types like int, short, byte, long, Boolean values, characters, floats, decimals. Whenever you declare and assign a value to a variable of one of these types, it's gonna be stored on the stack cuz it can only have one value.
+
+
+>> Okay, so by process of elimination, that must mean that the heap is used for non-simple types?
+>> You got it. Non-simple types like string, object, and dynamic. Unlike the stack, the heap is a bit of a-
+>> A heap?
+>> Yeah, I see what you did there, but yes, a string can theoretically have a length from 0 characters to 2 gigabytes in size.
+
+So in the case of objects, we can have an object that has dozens of members of various types. And as we mentioned previously, objects can contain objects, and more objects, and other objects. So, things on the heap could be really big, really small, or anywhere in between.
+>> Okay, and so unlike the stack, things are sorted on the heap that need to be stored in memory spaces that can dynamically shrink and grow.
+
+Whereas the stack is just really optimized for single values?
+>> Yeah, and that actually brings us to the key difference between the two that developers really need to know about. You see, things on the stack are called value types, and things on the heap are actually called reference types.
+
+But it's slightly more involved than that because reference types do actually have a location on the stack as well.
+>> Why is that?
+>> Well, reference types are out there in this area of memory called the heap, but the program still needs to know where to find them.
+
+So the stack variable is actually a reference to where on the heap that object is actually located so we can keep track of it. So I like to imagine a warehouse full of shipping containers, like in Indiana Jones at the end there. There's all those boxes all over the place, and our reference-type objects, just like those containers, can have all sorts of things in them in various sizes, including the Ark of the Covenant.
+
+But somewhere in that warehouse, there needs to be a manifest that lists out all the shipping containers and where they're currently located in the warehouse.
+>> Oh, okay, so the warehouse then would represent the heap, and the reference types that hold all this information are shipping containers. And then, the manifest goes on the stack.
+
+
+>> You got it. As a result of this, we have some interesting behavior when we assign variables to other variables, and it differs whether they're a reference or a value type.
+>> Well, I think this calls for an example, okay? So let's consider the following code. Here we have an int, which is a value type, and we're gonna assign it a value of 5, which is then assigned to another int called b.
+
+Then we're going to subtract 5 from b, so what impact will this have on a?
+>> I am gonna go with none whatsoever.
+>> Exactly right, because the values on the stack, when they're assigned to each other, are copied. So once that assignment is made, any future changes have no impact on the other variables, even if at some point they had the same value.
+
+They are absolutely two different things in memory.
+>> So how's that different from the heap?
+>> Well, for this one, we'll need a reference type. So let's take a look at a simple class called a Person with one string data member called Name.
+>> When you instantiate the class, that is an object, so it's a reference type, and therefore it goes on the heap, right?
+
+
+>> Precisely, so we'll create a variable of type Person called p1, and then we're gonna set the Name member to my favorite name, Eric.
+>> That's a great name.
+>> Oh, I agree.
+>> So, what does that actually look like in memory then?
+>> Well, p1, like all variables, goes on the stack, but its value is the reference to the Person object on the heap.
+
+So you can see how it points to the heap object.
+>> The fun part is when we introduce another Person variable and assign it to the value of p1.
+>> Right, the value of p1 is just a reference to an object.
+>> Yep, so all it does is point p2 to the same object as p1.
+
+
+>> RIght, and then if we change p2.Name to Sarah-
+>> Well then it wouldn't matter if you were to output p1.Name or p2.Name. They're referencing the same object, so they both would be Sarah.
+>> Exactly. So why did the inventors of the C# language do this?
+>> Quite simple, really.
+
+Since we can have objects and objects and objects that are sending messages to each other, there's objects flying all over the place. And these objects can be very large, so if they were on the stack-
+>> Oh, okay, so I get it. Then the whole object would be copied any time you called a method.
+
+And the amount of memory that you could use would just really get out of hand quickly.
+>> Yeah, with the reference being the only thing on the stack, then when we have the situation where we're passing objects to methods, we're only copying that little reference that says where the object is.
+
+We're not copying the entire location in memory, so it's very small.
+>> Yeah, right, so that sounds way more efficient than the other way.
+>> Yeah, those guys that create the programming languages are pretty smart.
+>> So now I get why these types are really important in C#.
+
+.NET programs just really need to know where in memory to put these things.
+>> Exactly, and while this information doesn't really get used in your day-to-day job, I mean I don't really spend a lot of time thinking about the stack and the heap. Knowing how memory allocation actually works, and how the stack and the heap do their job, is something that almost always comes up in a C# interview.
+
+
+>> Okay, so when you break it down, value types have a single value and are stored on the stack. And reference types go on the heap, but hold their reference location on the stack. Hey, actually it's not that complicated.
+>> No, it's not that complicated, but it's pretty cool.
+
+
+>> Yep.
+

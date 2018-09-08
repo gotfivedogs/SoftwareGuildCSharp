@@ -1,0 +1,18 @@
+Now that we have a grasp on types, variables and expressions, it's time to start using them to create real programs. One thing I like to tell my students is that no matter how complicated your program is, computers are really dumb. There's only three things a computer can do to solve a programming problem.
+
+First, you can evaluate statements in a sequence. Second, you can make decisions by branching, and third, you can loop which is repeating a sequence over and over again. This might sound overly simplistic, but bear with me a moment. These structures are called Flow of Control statements and we can't write any serious programs without using them correctly.
+
+For example, many sets of instructions in your day to day life, such as making a cheese sandwich, are just a sequence of steps. Most of the tasks we want a computer to perform can be broken down into a sequence. In fact, if you don't understand the sequence you really shouldn't be writing the code.
+
+You should be researching the problem. A friend of mine likes to say that code is a side effect of problem solving. Secondly, a computer can branch. We often encode one to execute one sequence if something is true, and a different one if the sequence is false. For example, am I hungry?
+
+If yes, then maybe I should make that cheese sandwich. If I'm not hungry, maybe I'll go take a nap. Notice that I put the sequence into the branch. We can combine any of these control structures any way we want. So the last structure is looping. Loops are great for repeating branches and sequences until some condition is met.
+
+Let's say I finish my cheese sandwich and I gotta do the dishes. How long should I do the dishes for? Well, as long as it takes. Are there more dirty dishes? Yes. Well then I should wash a dish. I finish that. Do I still have more dirty dishes?
+
+Yep, keep washing those dishes. Eventually, I'm going to finish a dish and I'm gonna check, and there's gonna be no more dishes to do. Then the loop condition will be false, and I'll exit the loop. So in conclusion, I want you to take note that we illustrated these steps with flow charts.
+
+When you're learning a code, I really encourage you to try to write these flow charts for every part of your program. It serves as a map of your logic, and it's gonna help keep you from getting lost in your code. Whiteboarding this is fine, but if you're into cool online tools, check out something called Lucidchart, which you can find at lucidchart.com.
+
+It's a great tool and it'll make your flow charting easier. And you can print them.
+

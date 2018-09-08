@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\DotNet2018\Section1\ValidatingInput\ValidatingInput\bin\Debug\ValidatingInput.exe.config
+C:\Users\User\Desktop\DotNet2018\Section1\ValidatingInput\ValidatingInput\bin\Debug\ValidatingInput.exe
+C:\Users\User\Desktop\DotNet2018\Section1\ValidatingInput\ValidatingInput\bin\Debug\ValidatingInput.pdb
+C:\Users\User\Desktop\DotNet2018\Section1\ValidatingInput\ValidatingInput\obj\Debug\ValidatingInput.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\DotNet2018\Section1\ValidatingInput\ValidatingInput\obj\Debug\ValidatingInput.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\DotNet2018\Section1\ValidatingInput\ValidatingInput\obj\Debug\ValidatingInput.exe
+C:\Users\User\Desktop\DotNet2018\Section1\ValidatingInput\ValidatingInput\obj\Debug\ValidatingInput.pdb

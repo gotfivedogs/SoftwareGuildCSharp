@@ -1,0 +1,32 @@
+>> To start our examination of flow of control concepts, we need to dive into conditional statements. The reason we call these statements conditionals is because a specific condition must be met in order for their code blocks to execute. The if statement is the most common conditional statement that we use as coders.
+
+This statement is written using the word, if, and then a set of parentheses, which must contain a condition. What's a condition? Well, in short, a condition can be any expression that returns true or false. Recall from our earlier lesson on expressions and operators that expressions actually cover a lot of code.
+
+They can be something really simple like a comparison or something as complex as chaining multiple methods together. Let's start with a simple example though. In our code here, we're asking the user if they're happy today. Then we check the expression to see if they entered Y for yes.
+
+We'll execute the code block only if this condition is true and, in that case, we print, that's great to hear. Like I mentioned earlier, conditional statements can include calls to methods. So let's say we create a method that returns a Boolean if today is a Monday. We can actually embed that directly directly into an if statement as a condition.
+
+And again, as long as what's in between those parentheses is true or false, C sharp is going to be happy. As you might imagine, we won't only have code we want to run when something is true. We often want to handle the false case as well. For this, we have something called the else statement.
+
+The usage of else is pretty straight forward. Else always appears after the if block. Just write the word else in another set of curly braces for the code block. As you can probably guess, the else's code will only be executed if the condition is false. So if we go back to our previous code, we can add an else statement to provide a message for the days that are not Monday.
+
+We can also add one or many else-if statements to our code blocks. This is for one you want to account for multiple related conditions. Here we've provided messages for Monday, Wednesday, and Friday. It's important to mention that the evaluation of a series of if and else-if statements is from top to bottom.
+
+So it goes in the order that you write it. If at any point, one of those conditions is true, like for example, today is Wednesday, then the code black will execute and the rest of the conditions will be skipped. If it's possible that multiple conditions could be true, make sure that you put the most important ones higher since it will only execute the first true condition block it finds and then will skip any of the others.
+
+This brings us to an even more interesting statement, the switch statement. You use a switch statement when you have one or many conditions. It's like an if else-if, but some developers find this syntax easier to read. Let me show you what I mean. Here's some code that generates a random number between 1 and 10.
+
+It also prints out where in the range the pick number was so if less than three, it's a low number. If between three and six, it's a middle number, and if it's not any of those, then QED, it must be a high number. The switch statement is a bit different in that it takes a value, and then lets you define cases with the code to be run if the value matches the case.
+
+So here's a switch block that does exactly the same thing as our previous if else-if code. Note that the value we want to evaluate goes inside the parentheses. In this case, num. Now, we have one too many case statements. Case requires an exact match, so if there are multiple values that should generate the same result, you can simply stack as many case statements on top of each other as you want to.
+
+Like we did here, with case 1 and case 2. So in our example, if the value of num is 1 or 2, the code will execute any statement beneath it, in this case, printing "Low number". Now notice I said any statements because you can execute as many statements as you want for that given case.
+
+We do need to let the switch know when the statements for a case are finished, so after printing low number, we have a statement called break. Break is a statement that quits out of the switch statement so that the rest of the cases will be skipped. A return statement will also work for this if you're in the middle of a method.
+
+But bottom line, each case must break or return after its statements. At the bottom of the code block, you're gonna see a new keyword called default. Including this is actually optional, it's like an else conditional in the if statement. So to sum up, now you've got a basic handle on conditional statements.
+
+They can be really simple, just a single if. But we can also add an else, if we want to handle false conditions. And in the case of multiple true conditions, we can reach for the else-if statement as many times as we need. Many students have asked me if they have to use the switch statement, and the answer is absolutely not.
+
+Switch logic can be achieved with if-else if statements, so using it is really just a matter of preference. Some developers find it more readable, others don't. It's up to you. Regardless of your preference though, you are going to see it in the wild, so you're gonna need to be familiar with it.
+

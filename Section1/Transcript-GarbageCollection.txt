@@ -1,0 +1,65 @@
+>> Hey, do you remember C++?
+>> Yeah, I slung some C++ code in my day.
+>> So you don't do that anymore?
+>> No, not if I can help it. I kinda like managed the languages like Java and C Sharp.
+>> Same here. Manage languages bring a lot of benefits just by not having to worry about some of the low level details, especially memory management.
+
+
+>> Yeah, I agree, I love me some garbage collection.
+>> To explain garbage collection, let's go back to some of our previous examples with the stack and the heap. In the first example, we had a series of value types inside a method and when the method ended, those variables dropped off the stack and they were immediately deleted.
+
+
+>> So you emphasized the word immediately, so I'm guessing that reference types are not immediately deleted.
+>> That's true, they are not. Deleting objects from the heap actually has some overhead associated with it. So when a variable is no longer in scope, the variable holding the reference is removed from the stack, but the object itself does remain on the heap for a limited amount of time.
+
+Let's examine this in code. Say we have two methods, Example and SetName, that will utilize the person class from the previous video. In the example method the first thing we do, is create that new person object. So that would create a reference variable on the stack with an object on the heap.
+
+And then inside that object the name property would start off with its default property which is null, right?
+>> Right, so inside new objects, one thing to, note is that all the data members are gonna get set to their default values. So a string would be null, number would be 0, booleans are false, and so on and so forth.
+
+The next thing we do is call the SetName method and pass our reference from p1 to the parameter, p.
+>> Okay, and as we discussed about the stack in the heap, we would just add a stack variable, this time called p. And then copy the reference from p1 to p.
+
+The method then sets the name data member to Eric, and then exits, right?
+>> Absolutely.
+>> Okay.
+>> So since the method is done, the parameter, p, no longer exits, and it will be deleted from the stack. Now we notice in the code that the example method is also going to end.
+
+
+>> Okay. So the p1 variable is off the stack, and it will be deleted. So then the object on the heap should be deleted too, right?
+>> Slow your role man.
+>> Okay.
+>> This is where the garbage collection actually kicks in. The object is gonna hang out there on the heap for a little while.
+
+However, it no longer has any stack variables referencing It. That means it's eligible for garbage collection.
+>> Okay, so then when does the garbage collection actually delete that object from the heap?
+>> I don't care.
+>> Okay, I see. So that's the beauty of the managed language. We know that sometime in the future, right, the garbage collector will come along, he's gonna free up the memory, but we don't have to worry about when that happens.
+
+
+>> Exactly, it's almost as if there is a dark force inside the run time and it's hunting for these heap objects that don't have any stack variables referencing them and then periodically it assassinates them.
+>> That's kind of dark man.
+>> Yeah but I'm an epic coder, so I like all parts of my code to be like an epic story.
+
+
+>> Man you need help.
+>> Yeah, that's for sure. So the last thing I wanna talk about is what we call a memory leak. Now these don't happen very often in manage languages because the garbage collector is cleaning things up for us. But it's actually not impossible.
+>> Okay, oh I remember those from C++ though.
+
+In that language, you have to manually dispose of your objects. So if you forgot to do that, yeah they'd be hanging out in memory forever and if you kept forgetting over and over in the program and you kept running that program for a long time. Eventually that program would start slowing down.
+
+You'd run out of memory and then eventually you'd crash.
+>> So in short, if somebody asks about what a memory leak is, I should tell them it's when the data doesn't get disposed of properly which over time will degrade my performance.
+>> Yep, and it's a bad thing.
+
+
+>> Yeah, it seems like garbage collection provides a lot of value in that we don't have to worry about that anymore. It just, the memory gets cleaned up. But what if I want to worry about that?
+>> You can worry about it if you really want to. There are ways that you can adjust when garbage collection happens manually.
+
+But, I don't really recommend you do that unless you have a very specific issue and you really know what you're doing.
+>> Okay, you seem pretty hesitant about that.
+>> Yeah, it's just not something you do very often or something that you would do lightly. I mean, you gotta figure that the team at Microsoft that works on the garbage collector, they have a lot of really smart people, some of them with PhD's.
+
+And they're a lot smarter than me. So in 99.9% of the cases, I'd rather just let the framework do its thing.
+>> Yeah, I agree. I think that's probably the best way to go.
+

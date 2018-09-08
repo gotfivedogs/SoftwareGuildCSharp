@@ -1,0 +1,8 @@
+D:\Git\Curriculum\dotnet\ObjectOrientedProgramming\01-Basics\Assessments\Factorizor\Start\Factorizor\Factorizor\bin\Debug\Factorizor.exe.config
+C:\Users\User\Desktop\DotNet2018\Section1\Factorizor\Factorizor\bin\Debug\Factorizor.exe.config
+C:\Users\User\Desktop\DotNet2018\Section1\Factorizor\Factorizor\bin\Debug\Factorizor.exe
+C:\Users\User\Desktop\DotNet2018\Section1\Factorizor\Factorizor\bin\Debug\Factorizor.pdb
+C:\Users\User\Desktop\DotNet2018\Section1\Factorizor\Factorizor\obj\Debug\Factorizor.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\DotNet2018\Section1\Factorizor\Factorizor\obj\Debug\Factorizor.exe
+C:\Users\User\Desktop\DotNet2018\Section1\Factorizor\Factorizor\obj\Debug\Factorizor.pdb
+C:\Users\User\Desktop\DotNet2018\Section1\Factorizor\Factorizor\obj\Debug\Factorizor.csprojResolveAssemblyReference.cache

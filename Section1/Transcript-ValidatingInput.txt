@@ -1,0 +1,48 @@
+So let's take a few minutes and talk about validating human input. And the need to validate human input should be readily apparent because I'm pretty sure that you yourself have never typed everything correctly for your entire life. And it's just a fact of the matter that your programs will work great until users get involved, cuz they're always gonna try to do something that you didn't anticipate.
+
+They're gonna try to put in bad data. So there's this constant dance that goes on between developers and the users where developers try to prevent them from doing dumb things, and users keep trying to do dumb things. So let Let's talk a little bit about the typecasting in C sharp, so let's say, we would like the users to enter an integer for us.
+
+So the way to go about that is first we're gonna ask them, we'll say, hey enter a number and actually instead of writeline, I'm just gonna change this to write so that the number they enter will be on the same line. And of course, this comes in as a string.
+
+Now one way that we can convert this to an int Is to use the integers parse method. And you'll see here that it says int.Parse, takes in a string, and converts the string to a number that is 32 bits, which is your standard integer. So if I put my input as a parameter into the parse method, it will take that and turn it into a number.
+
+And then we can add 1 to it and just print that out, the number plus 1 is: Then we'll put our number here. And let's go ahead and run our code. And you will see that it wants me to enter a number, and I'll put in 15, it will parse it, add 1, and that becomes 16.
+
+And int.Parse looks pretty handy, the problem with parse is that if the input string is not convertible to an integer, it will throw an exception and crash your program. So if I type banana, which is not an integer. There you go, it's called a format exception. It's trying to take that string and format it as an integer, it failed.
+
+And at that point your program crashes, can't be used anymore. Now that's not very friendly for users because if a user is filling out a form like a tax form or something and they have to enter a few dozen items, you don't want to make them start over every time they fail to put in the input the right way.
+
+So to handle this besides Parse there is also something called TryParse, so let's go ahead and comment this one out. Actually, let's keep the number, But let's comment this line out. And what we can do here is we can say if, because TryParse returns a Boolean, int.TryParse, and the first parameter, again, is the string.
+
+So we're gonna take that input and then the second parameter is an output parameter, which you're gonna learn about later. But it says, tell me what you wanna come out, and that would be the number. And if this is successful, then go ahead and increment it by 1, and print it out.
+
+Now again, if we run our code, we can type in 15 and it, successfully parsed it I can parse this to a number, go ahead and do that, return true. And output it to the number, add 1, and print it out. But what if it doesn't? So here, I'll run it again, I'll type banana, in this case, int.TryParse will be false, so it will fall out of the if statement and it'll just go right to my console readline.
+
+So it just sits there and then the program ends, there was no error this time unlike the other time, okay, it's getting better, we're not crashing our program. However what I would really like to do is force the user to enter an integer and not let them move on until they do.
+
+So now we've got to go back to our loop logic, how many times do you think it's going to take a user to enter valid input? And the answer is we don't know, so a 4loop not going to cut it. The correct loop to use in this case is going to be a While loop, and what I can do is I can just cheat a little bit.
+
+I'm gonna say while {true}, and that's gonna start an infinite loop. So this loop is gonna go on forever and ever, until I use my break statement to tell it to stop. So, while {true}, go ahead and let's move all this stuff in there. So while true print out enter a number, then get the input, then try to parse it.
+
+If it does go ahead and print the message and then break, however, if it doesn't parse correctly, let's give them a nice little message. So we'll say console.writeline that was not a valid number. And then what will happen is that we'll hit the bottom of the loop, hit a jump back to the top, and it'll print enter a number again.
+
+And it'll keep going and going and going until this TryParse is successful whereupon it will increment the number, print out, and then break out of the loop. So if we type banana, that was not a valid number and then it popped back to the top of the loop.
+
+And it'd keep doing that forever, and ever, and ever, but then when I finally enter a good number, it add one, the break statement hit, and the program ends, and we're happy. So this pattern here, this while true go ahead and have a prompt, parse out your number.
+
+This is a pattern you can use for anything. You want a decimal, you want a string of a certain length, you can do whatever checks you want in here. And this pattern will allow you to validate any user input you want and one thing I'm going to show you which is a little trick.
+
+When I get into bigger programs what I actually like to do is write a method and we're going to get into methods in the next lecture. But I'll just show you some magic here. Let's call this GetIntFromUser. And what we'll do is we'll pass in the prompt that we wanna show the user, and then what we'll do is we'll say While true.
+
+Console.write, and now, instead of hard coding my prompt like I did before, I'm just gonna pass in whatever's in the prompt variable. We'll read in our strain, just like we did before. We'll TryParse our input, we'll out our number. And then because this just gets an integer from user, if we're successful we'll just return the number, And if we're not then we'll print a message that was not a valid integer.
+
+Just like that, and once I have written this method and encapsulated this code, now I can do something like this. Let's say we have a program that just calculates the sum of two numbers. I can say int num1 = GetIntFromUser, enter the first number, int num2 = GetIntFromUser.
+
+Enter the second number, Console.WriteLine the sum is: num 1 + num 2. So you can see, that the structure of this loop is the same as it was before. It's just now, I've put it into a method so that I can just reuse it over and over and over again.
+
+I only have to write this loop one time, that's the beauty of putting your code into methods. And when we looked at the original code, you know, what we noticed is that the prompt was hard coded. Well, if I want to use it to get this any integer, the prompt is gonna change.
+
+And anything that's gonna change in-between calls, we just move it into a variable and now we can use this function as many times as we want. Let's go ahead and run this, so I can prove to you that it works. So I get the first number, let's type some gibberish.
+
+Yeah, that's not a valid integer, get the first number, do 15, 10. 10 we're happy.
+

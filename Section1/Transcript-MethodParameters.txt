@@ -1,0 +1,85 @@
+>> Hey, man. I was hoping that we could talk a little bit about method parameters. It's one of those topics that beginners tend to make some false assumptions about.
+>> Well, I can see how you'd want my help with this one. Afterall, how could you pass on my value?
+
+
+>> Really? We couldn't even get out of the gate without a pun? It's what I do. But if you don't like my humor, I can give you a reference to someone else.
+>> I think we're done here. Well, first let's bring you up to speed. We've covered Method Signatures, so we understand, well what the parts of those signatures are.
+
+
+>> Great. So we're good on access modifiers, return types, method name, parameters, and the return statement.
+>> Yep. We got all that.
+>> What about parameter names? Did you explain that names don't have to match the calling variables?
+>> I was about to. You seem so eager. Why don't you just go ahead and do it.
+
+
+>> Gladly. Let's take a closer look at the int add method. How would you invoke this method?
+>> Well, I got to tell you, I don't know. I don't have enough information.
+>> Why not?
+>> Well I guess I don't know what class it's in. It's not static, so I have to substantiate whatever container class It is, before I can call it.
+
+Unless of course, we're writing code inside the same class.
+>> All right. So the animators were a bit lazy in this example. Okay. I'm sorry. I take it back. I take it back. Thank you. Let's just back this code out a bit. So you can see more code.
+
+So that's more helpful. So in this case we have an instant method and the class is called Calculator. So if I want to use that method the first thing I'm gonna do is I have to create and instance of the calculator assigned to a variable. Then I would invoke the add method and I'd pass it two integers.
+
+I'd probably also store the return value of the method in a variable. So it doesn't get discarded. Great. That would work. Now what if you didn't want to pass liberal numbers? What if you wanted to pass in the values from variables? Well I guess I would introduce two variables in my code.
+
+But I still need to astanciate my calculator then when I vote my add method I just pass the variables X and Y instead of those literal values that we passed before.
+>> Now explain to me why you named those variables X and Y? Well in the calculator add method the parameters are named X and Y and so it was just easy for me to remember.
+
+Yeah that's right. That's where people get confused. Exactly. While many developers will name the variables in the call the same as the parameters because it is easy to remember, some beginners look at that, and then they think that they have to match.
+>> Right, right, I've been doing this for so long, it's just easy to forget that calling variables and method parameters don't have to have the same name.
+
+So in your code we declare x and x, which being value types go on the stack. Then we instantiate a calculator object, which being a reference type goes on the heap. So then when we call the method, the parameters are moved to the stack and the values from the other x and y variable are copied in.
+
+So the method runs and it just returns X + Y. The method parameters drop off the stacks since the method's over but the return value then is stored in that variable sum. So the point of this story is that we could've named those outer variables anything we wanted.
+
+Exactly. It can be easy to remember to do but parameters are passed by value so it doesn't really matter where the data comes from. A literal, a variable, another method, it's only the value that gets sent across. So how does that differ for a reference type? Like our person class?
+
+
+>> Well it doesn't. Parameters are passed by a value. Okay so the value in that case would be a reference to whatever object you are passing.
+>> Well exactly but let's look at it. Saying we have two classes this time. One is our person and the other is a class that increments a person's age on their birthday.
+
+So this will also give us a look at two objects working together to do something. So I can instantiate a person object, give her some data, and then let's invoke that happy birthday method. So, why did you instantiate person event? Because the HappyBirthday method is static so I don't have to.
+
+
+>> Okay, I go it. So at this point in code we'll have our person object on the heap linked to the mary variable and the PersonEvent static is all set to go. So when the method is called the parameter p goes on to the Stack and the value is copied.
+
+But what's the value? Well, the reference from mary is the value that's copied. p.Age gets incremented in the method and then p falls off the stack.
+>> So the value that was passed to the method was just the reference? Which was the arrow in our illustration.
+>> Right, absolutely.
+
+So parameters are always passed by a value then?
+>> Well not exactly. They are by default. But like many things in a programming language we can change that behavior if we want to. So we can pass by a reference then?
+>> Right. If you use the right keyword.
+
+So let's look at an example with a value type like an integer that's pretty straight forward right. So we're going to pass in an integer value and we're going to increment the value by one.
+>> Wait That code seems really dumb. It's going to increment the value with a parameter but since it's pass by value it's going to be discarded.
+
+We didn't return it or do anything with it.
+>> Well things don't always have to be useful, Eric.
+>> That's exactly what you said when you dragged me to your cereal box sculpture art show so that I could quote broaden my horizons endquote.
+>> Hey wait a minute, I sold one of those for eight bucks!
+
+All right, so anyway, as I was saying, the example's straightforward, I'm just trying to prove a point. So let me show you an alternate version.
+>> Okay.
+>> So I'll call this ByReference. So, now, take note of the ref keyword in front of the parameter type.
+>> And I bet that ref is short for reference.
+
+
+>> You got it.
+>> Right.
+>> So, now, in this case, if we declare a variable
+>> And call the first method, you'll see that both the variable and the parameter go into the stack and the value is copied. One is incremented and discarded and the other one remains.
+
+Here is the code we would use to call the by reference method. Notice how we need to put the ref keyword on both the method parameter list and on the code that invokes it. Okay, so in the second case by specifying ref, it'll tie the calling variable and the parameter together, so both will be changed.
+
+So why would I ever want to do this again? Honestly, you probably wouldn't. This is really just a clever way to get around the restriction of returning a single value from a method. But if you feel like you really need to do this you are probably doing too much in your method.
+
+if i ever feel like I am reaching for something non-standard or gimmicky, I always try to step back and rethink my solution.
+>> Right. So now we have a good idea of how parameter parsing in methods work in syntax. And how the values behave on the stack of the heap.
+
+
+>> The important thing to remember is that parameters are always passed by value. Even reference type since the value is the reference itself.
+>> Right. If we find a case where we want to pass by reference instead, we have the ref keyboard for that.
+
