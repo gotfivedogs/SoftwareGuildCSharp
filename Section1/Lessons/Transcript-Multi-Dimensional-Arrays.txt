@@ -1,0 +1,24 @@
+>> Single dimensional arrays, sometimes referred to as vectors, are by far the most common usage of the array type. Both because most problems fit into a simple list of elements, and because adding dimensions to arrays makes it a bit harder to visualize, iterate and otherwise keep track of them.
+
+That being said, with a simple bit of syntactic sugar, we can make our arrays have multiple dimensions in a rectangular fashion, like a table, or in a jagged fashion where each row is actually an array itself of different sizes. These are called multi-dimensional arrays, and by the end of this video you'll have a good idea of how they look and how we instantiate them.
+
+The first type of multi-dimensional array we want to look at are rectangular arrays. A rectangular array is pretty self-descriptive. It's an array with multiple dimensions of the same length. People generally think of this as a table with rows and columns. Declaring this type of array just like any other array is gonna use those square brackets.
+
+But in this case we're gonna put a comma inside those brackets just like so. The comma signifies an extra dimension. So while we didn't have any comma for a one dimensional array, this comma makes the array two dimensional. Then in the new statement, all we have to do is tell it how many rows and columns we want.
+
+In this case, three rows and five columns. How about a three dimensional array? Can we add two rows of depth? Sure can. Just add another comma and tack a 2 onto the end of the new statement. You can keep adding more commas, but frankly, I think that even 3D arrays are pretty hard to keep track of and visualize.
+
+I tend to avoid them. In fact, I can't actually think of a time in my professional career where I've given serious thought to using that many dimensions. Now, I know what you're probably thinking, and no, if you instantiate a four dimensional array, you cannot time travel. The last array type we wanna cover is the jagged array.
+
+A jagged array is really an array of arrays. Is your mind blown yet? Just stay with me. For a jagged array we use two sets of square brackets. The first is because the jagged array is an array. The second is to signify that each element in the root array is also an array.
+
+So when I declare the variable and instantiate with the new key word, I only put a value in the first set of brackets. This determines how many elements are in the root. So how many arrays do we have in our root array? Let's give it three elements. I tend to think of jagged arrays as filing cabinet drawers, rather than lockers.
+
+In this case, I set three elements. So this cabinet has three drawers. But just like a cabinet in the real world, we can have any number of folders inside each drawer. The drawers don't have to have the same number of folders either. Separately, we now need to instantiate an array for each element in the root.
+
+So let's put three elements in the first position, which is a net zero of course. Then we'll move to index one and we'll put two elements in there. And lastly, index two will have four elements available. So if we want to put something in the third element of the first drawer, we could just do it like this.
+
+And that's really all there is to multidimensional arrays. I've used 2D arrays from time to time to create table like data. But honestly 3D arrays are infrequently used in most business scenarios. I have, though, seen them used for length, width, and height scenarios, like storage cubes. For jagged arrays, I've seen them a little bit more frequently, since there are some cases where you'll have multiple groups of elements that may not be the same length.
+
+A good example of this is if you were modeling a hotel, where each floor is the root, but every floor has a different number of rooms. So you can see, even though one dimensional arrays are by far the most common, you do have some good options out there for more complicated structures if the need arises.
+

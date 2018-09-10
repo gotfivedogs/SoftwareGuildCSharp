@@ -1,0 +1,62 @@
+>> In this lesson, let's take a look at real examples of using arrays in C# code. The main issue that beginners have with manipulating arrays is that we often do it inside of a for loop, which has its own loop control variables and statements, on top of being mindful of what's in the array.
+
+In some ways, it's a bit like mental juggling. As usual, I'm going to encourage you, when working with arrays early on, and in our exercises, to grab a scratch pad, draw out the array, and write down the steps on how to manipulate it. As you'll see in this video, it makes the coding and visualization process much easier.
+
+For our first example, let's say we have an array of integers and we'd like to find the sum, min and max in that set.
+>> Just use the sum, min and max link methods.
+>> Hey man, we're not there yet, okay? Avada Kedavra. So you don't get to use shortcuts until you get the long way.
+
+And frankly, in an interview situation, you will often be asked to do things like this without using the available goodies, such as Link. Alright, now where was I? Yeah, that's right. An array of integers. Let's go ahead and instantiate one with some sample data. We'll also need a variable to store the sum.
+
+As well as variables to store the min and the max. But unlike the sum, I don't want them to be zero. Because zero may or may not be in the array of numbers. If I was looking for the min and the max without a computer, I'd scan the array visually from left to right, keeping track of the min and the max as I went along.
+
+So the first value I'd look at would be on the left which is index zero. As far as the computer knows, the value three is the min and the max until we check the rest of the array. So when we declare the min and max variables, let's default their values to the element at index zero.
+
+Now, we need to loop through the array of numbers. A for loop is typically used for looping through an array because the way they count is ideal for walking indexes. Arrays start at index zero, and we want to go left to right. So we'll start at zero, and we want to read every element in the array.
+
+Now there's a trick to this. Arrays start at zero, but the length property counts from one. So no matter how big or small your array is, the last element in the array is always located at one less than the length. So here we can put i less than numbers.Length, since the less than symbol will stop us before we go past the end of the array.
+
+This is because the length is six, but the max index is five. So i less than numbers.Length will stop if i becomes six or higher, which is exactly what we want. Sometimes however, you'll see programmers write the condition a little bit differently and they'll write it as i less than or equal to numbers.Length minus one.
+
+Both of these expressions work just fine. In our example here, less than six, means five is the max value and less than or equal to six minus one, also has five as the max value. Just use the format that you're most comfortable with. Just make sure that you don't go past the last index, or you will get the dreaded index out of range exception.
+
+So moving along, we want to get each index of our array and indexes increase by ones, so we'll just put i++ for our incrementer. Now, we have a loop whose control variable i will control all of the possible index values in order of the array. You can memorize this.
+
+It's universal. Walking an array from start to finish, this is always your loop structure. Naturally, you can modify this to skip elements, or start early, walk back to front, and so on. But, straight forward start to finish, this is your loop. Next, let's take care of our sum.
+
+For a sum we want a running total. This is best done by using the plus equal operator. And since our loop is looping through the index of the array, we want to add to our sum the value at index i. So as the loop runs, i will keep going up by one and the value at numbers index i will be added to the current value of sum.
+
+So you can see how the loop is going to process things one at a time, and that numbers sub i will always grab the integer value at the loop's current index. Now we also need to take care of the min and max though. And this is fairly simple.
+
+For the min, we just want to check if the current element is less than the current min. If it is, we simply overwrite the value of min, with the current element, which is always number sub i. Again, as we loop in i increments, the current value of numbers, sub i, will move through the array.
+
+But only if that element is less than the current value will it store it. After it's checked all the numbers, it will correctly have the value two as the min. Max is the opposite of min. So we'll have a similar expression, except we'll be looking for elements greater than the current max.
+
+And it's as simple as that. As we move through the indexes of the numbers array, the value i in the loop is used to grab the current element in the array. Now let's drop some computer science. We'll look at an algorithm for sorting an array, the bubble sort.
+
+Now, bubble sort is not the most efficient way of doing things, but it is fairly easy to understand and it will help me introduce a few more concepts of working with arrays and code. So let's get our array of numbers back up here. In bubble sort the idea is that starting from the left we compare the current number with the one right next to it.
+
+If the number on the right is less than the current number then we swap the two. In this case they're in order, so we're good. Let's move on to the next index, though, and we find that seven is greater than two, so the code will swap them. Then onto the next index, seven is greater than four, so swap those too.
+
+And if you look at the rest of the array, they're already in order. So although we'll check them, no swaps will be made. This is one pass through the sort. In the worst case scenario, where the starting array is in descending order, it'll take one less than the array's length, number of passes.
+
+Because we just don't know the starting order, we have to assume that it's worst case scenario, to be sure that the numbers get sorted properly. This means we need two loops. One loop will control the number of passes, whose max is one less than the length. And a second loop will go through the indexes of the array.
+
+Also, since computers can only do one thing at a time, if we're going to swap the two values in the array, we'll need a temporary holding area. So what'll happen if we want to swap say seven and two, we'll park seven in temp, we'll overwrite seven with two, and then we'll take the parked value of seven and replace two with it.
+
+Swapping in code always requires extra storage space like this, since two values can't be in the same place at the same time. Now let's look at our swap code. The variable j is the current index in the array and we want to compare the value there with the value immediately to the right.
+
+Well, in the world of indexes, the value to the right is always j + 1. So if the current element of numbers at j is greater than the element immediately to the right, then put the current element into temp. Replace the current element with the one next to it, and replace the one next to it with one in temp.
+
+Now the one next to it brings up an interesting point, if you haven't noticed already. Look at the j for loop condition. Notice how, before, I just did i less than numbers.Length, but this time I subtracted one. The reason for this is simple, in our loop we're always working with the current index and the one to the right.
+
+Well the last index in the array doesn't have a value to the right, so if we try to read one spot to the right from that, guess what happens? That's right, index out of range exception. The way around this is to make sure that our loops stop one place before the last index, which is length minus one.
+
+And that's really the hardest part in dealing with arrays. You have to be cognizant of where the boundaries are, and make sure that in all cases, you don't exceed them. For our purposes though, we're done here. The inner loop will walk the indexes and compare all the values to the ones next to them, swapping as necessary.
+
+The outer loop will ensure that we loop as many times as necessary for the worst-case scenario. And that's why I called bubble-sort inefficient. Even though we're done sorting after only three passes, we're gonna do this five times anyway. So here's a challenge for you. See if you can take this code and introduce a boolean variable that keeps track of whether or not you made any swaps on the current pass and if you don't, go ahead and break out of the loop.
+
+So now you have some good examples of processing arrays with loops. To recap when doing this there are some key points to remember. First, the first element of an array always starts at index 0. The last element of the array is always length minus one. When looping arrays always be aware of the boundaries.
+
+And finally, never assume assume that an array will have the data or be long enough. I've seen many a crash where a developer assumes that there will be, for example, three elements in the array. But they get an array that only has two.
+

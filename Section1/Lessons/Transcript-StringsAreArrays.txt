@@ -1,0 +1,38 @@
+>> Now that we know more about how arrays work, we can jump into string manipulation. Most of your data comes from input devices like keyboards or, in the case of the web, HTTP, which stands for hypertext transfer protocol. Notice the word text in there. In general, when your application wants to communicate with other devices, the data is transferred as text.
+
+Needless to say, there's a lot of code out there that parses and works with text data, including C# strings and chars. So how does this tie back to arrays? Well, in C#, a string is actually an array of characters. Let's demonstrate this with an example. Say we have a string of text like I like cheese, and what we'd like to do is print out just the vowels to the console.
+
+Since strings are arrays of characters, and we know the length of the string, we can utilize a for loop to do this. So let's loop from 0, which is the starting index, until our stopping point, which will be the length of the string. Notice that strings have a length property just like arrays.
+
+We'll walk through the characters one at a time in order so i++ is the incrementer. Inside the loop we want to check if the current character at index i is a vowel. Since there are five vowels because no, y is not a vowel, not in my book, not even sometimes.
+
+Anyway, this is a good scenario for a switch statement. Since I don't want to have to write five or expressions, it's valid code and everything, but I've never really liked how that reads. Our switch needs to know what we are evaluating, and that's the character at index i.
+
+Then we need the cases that care about, which is if str sub i is a vowel. So let's just stack those five cases on top of each other. If a character is one of these cases, we write it out to the console, then we break out of the switch statement and continue our for loop.
+
+When run, this loop will print ieee. But look back at the original string. Do you see what we missed? Yep, we forgot to account for capital letters. When working with strings and indexes, it's really important to carefully consider all of the possibilities, which is why we encourage those unit tests.
+
+So let's fix that up. All we need to do is insert cases for our capital letters, and now it will correctly print out the vowels whether they are uppercase or lowercase. Well, that was fun. Let's do another one. Let's say we want to check if a given string ends in I-N-G.
+
+Let's write a method this time. We're asking a yes or no question, so this method should return a boolean. We'll give it a descriptive name. And as a parameter, we'll take in a string. Now, in plain language we want to know if the third-to-last character is i, the second-to-last is n, and the last character is g.
+
+I like to think about sample data while coding, so let's consider a value of str that is the word Running. Let's add some indexes to help us think through the logic. With Running we know that the length property will be 7. We also know that the last character is always at position Length-1, which in this case is index 6.
+
+If all we have to work with is the length property, then how do we express the second-to-last character in terms of length? Simply put, it will be Length-2. And the third-to-last will be Length-3. So let's make a decision. We'll need an if, and we want to know if the third-to-last character is an i.
+
+In previous examples we had a loop. Now we don't. But we can write a math expression to calculate our index. So this expression means give me a character in str at the index Length-3. If str is Running, then that will be index 4. It's not enough for that character to be i, though.
+
+We also need the second-to-last character to be n and the last character to be g. We'll return true if all of these characters are in the right spots. Otherwise we'll return false. This method looks pretty good at a glance, but once again I've overlooked something. Can you guess what it is?
+
+Right, what if the parameter passed in does not have at least three letters, like the word at? The length of at is 2. So when we get into the first expression in our if statement, it's going to try to get the character at Length-3, which would be minus 1.
+
+And you know what happens next, index out of range exception. We can fix that easily enough though. If the string doesn't have at least three characters, it certainly doesn't end in I-N-G. So there you have it. We saw how we can loop strings like arrays. And in the case of our ending with I-N-G code, we got to see how we can write math expressions when we want to get to particular characters in a string.
+
+In both cases, we initially left out some critical parts of our code. In the first, we forgot to consider capital letters. In the second, we dove right into the index calculations for finding I-N-G because that's the interesting and challenging part of the problem. These two cases taught us two important things.
+
+First, if you're working with strings, it's essential to be aware of all the different characters that can appear, even derivations like upper and lowercase. Secondly, as we learn in the I-N-G case, we always have to consider the boundary conditions within your code that could possibly throw an exception and crash it down the road.
+
+There are many possible omissions that are common in string manipulation. To be honest, it's actually one of those things you learn by banging your head against it. Every time your code explodes due to poor validation, that scar on your brain will make you more aware in the future.
+
+For what it's worth, and given how many code explosions I've created, my brain is pretty much a giant ball of scar tissue. But hey, that's the life of a coder.
+

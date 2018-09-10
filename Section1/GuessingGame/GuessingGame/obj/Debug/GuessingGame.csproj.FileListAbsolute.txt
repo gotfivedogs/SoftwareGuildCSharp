@@ -5,3 +5,10 @@ C:\Users\User\Desktop\DotNet2018\Section1\GuessingGame\GuessingGame\obj\Debug\Gu
 C:\Users\User\Desktop\DotNet2018\Section1\GuessingGame\GuessingGame\obj\Debug\GuessingGame.csproj.CoreCompileInputs.cache
 C:\Users\User\Desktop\DotNet2018\Section1\GuessingGame\GuessingGame\obj\Debug\GuessingGame.exe
 C:\Users\User\Desktop\DotNet2018\Section1\GuessingGame\GuessingGame\obj\Debug\GuessingGame.pdb
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\GuessingGame\GuessingGame\bin\Debug\GuessingGame.exe.config
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\GuessingGame\GuessingGame\bin\Debug\GuessingGame.exe
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\GuessingGame\GuessingGame\bin\Debug\GuessingGame.pdb
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\GuessingGame\GuessingGame\obj\Debug\GuessingGame.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\GuessingGame\GuessingGame\obj\Debug\GuessingGame.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\GuessingGame\GuessingGame\obj\Debug\GuessingGame.exe
+C:\Users\User\Desktop\DotNet2018\Repo\SoftwareGuildCSharp\Section1\GuessingGame\GuessingGame\obj\Debug\GuessingGame.pdb
