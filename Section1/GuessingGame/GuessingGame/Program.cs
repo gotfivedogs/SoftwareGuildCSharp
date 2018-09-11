@@ -18,13 +18,27 @@ namespace GuessingGame
                 Environment.Exit(0);
             }
             Random rng = new Random();
-            int answer = rng.Next(1, 21);
+            Console.WriteLine("Select Mode - Enter E for Easy, N for Normal, or H for Hard");
+            string mode = Console.ReadLine();
+            int topLevel = 0;
+            if (mode.ToUpper() == "E")
+            {
+                topLevel = 5;
+            }
+            if (mode.ToUpper() == "N")
+            {
+                topLevel = 20;
+            }
+            if (mode.ToUpper() == "H")
+            {
+                topLevel = 50;
+            }
+            int answer = rng.Next(1, topLevel);
             string input;
-            int guess;
             int guessCount = 0;
             while (true)
             {
-                Console.Write("Welcome, {0}, enter a guess from 1 to 20: ", name);
+                Console.Write("Welcome, {0}, enter a guess from 1 to {1}: ", name, topLevel);
                 input = Console.ReadLine();
                 guessCount = guessCount + 1;
                 if (input.ToUpper() == "Q")
@@ -33,16 +47,16 @@ namespace GuessingGame
                     Console.ReadLine();
                     Environment.Exit(0);
                 }
-                if (int.TryParse(input, out guess))
+                if (int.TryParse(input, out int guess))
                 {
                     if (guess == answer)
                     {
                         break;
                     }
-                    if (guess < 1 || guess > 20)
+                    if (guess < 1 || guess > topLevel)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Sorry, {0}, enter a number between 1 and 20!  Try again!", name);
+                        Console.WriteLine("Sorry, {0}, enter a number between 1 and {1}!  Try again!", name, topLevel);
                         Console.ForegroundColor = ConsoleColor.White;
                         continue;
                     }
