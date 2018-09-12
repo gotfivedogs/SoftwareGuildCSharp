@@ -32,82 +32,185 @@ namespace Warmups.BLL
 
         public string FirstHalf(string str)
         {
-            throw new NotImplementedException();
+            return str.Substring(0, str.Length / 2);
         }
 
         public string TrimOne(string str)
         {
-            throw new NotImplementedException();
+            return str.Substring(1, str.Length - 2);
         }
 
         public string LongInMiddle(string a, string b)
         {
-            throw new NotImplementedException();
+            if (a.Length > b.Length)
+            {
+                return b + a + b;
+            }
+            else
+            {
+                return a + b + a;
+            }
         }
 
         public string RotateLeft2(string str)
         {
-            throw new NotImplementedException();
+            return str.Substring(2, str.Length - 2) + str.Substring(0, 2);
         }
 
         public string RotateRight2(string str)
         {
-            throw new NotImplementedException();
+            return str.Substring(str.Length - 2, 2) + str.Substring(0, str.Length - 2);
         }
 
         public string TakeOne(string str, bool fromFront)
         {
-            throw new NotImplementedException();
+            if (fromFront == true)
+            {
+                return str.Substring(0, 1);
+            }
+            else
+            {
+                return str.Substring(str.Length - 1, 1);
+            }
         }
 
         public string MiddleTwo(string str)
         {
-            throw new NotImplementedException();
+            return str.Substring(str.Length / 2 - 1, 2);
         }
 
         public bool EndsWithLy(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length >= 2 && str.Substring(str.Length - 2, 2) == "ly")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string FrontAndBack(string str, int n)
         {
-            throw new NotImplementedException();
+            return str.Substring(0, n) + str.Substring(str.Length - n, n);
         }
 
         public string TakeTwoFromPosition(string str, int n)
         {
-            throw new NotImplementedException();
+            if (n <= 2)
+            {
+                return str.Substring(n, 2);
+            }
+            else
+            {
+                return str.Substring(0, 2);
+            }
+
         }
 
         public bool HasBad(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length >= 3)
+            {
+                if (str.Substring(0, 3) == "bad" || (str.Substring(1, 3)) == "bad")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string AtFirst(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length < 1)
+            {
+                return "@@";
+            }
+            else if (str.Length < 2)
+            {
+                return str.Substring(0, 1) + "@";
+            }
+            else
+            {
+                return str.Substring(0, 2);
+            }
         }
 
         public string LastChars(string a, string b)
         {
-            throw new NotImplementedException();
+            string first = "";
+            string last = "";
+
+            if (a.Length <= 1)
+            {
+                first = "@";
+            }
+            else
+            {
+                first = a.Substring(0, 1);
+            }
+            if (b.Length < 1)
+            {
+                last = "@";
+            }
+            else
+            {
+                last = b.Substring(b.Length - 1);
+            }
+            return first + last;
         }
 
         public string ConCat(string a, string b)
         {
-            throw new NotImplementedException();
+            if (a.Length == 0 || b.Length == 0)
+                return a + b;
+            if (a.Substring(a.Length - 1) == b.Substring(0, 1))
+            {
+                return a + b.Substring(1);
+            }
+            else
+            {
+                return a + b;
+            }
         }
 
         public string SwapLast(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length < 2)
+            {
+                return str;
+            }
+            else
+            {
+                return str.Substring(0, str.Length - 2) + str.Substring(str.Length-1, 1) + str.Substring(str.Length-2, 1);
+            }
         }
 
         public bool FrontAgain(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length < 2)
+            {
+                return false;
+            }
+            else
+            {
+                if (str.Substring(0, 2) == str.Substring(str.Length - 2, 2))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
 
         public string MinCat(string a, string b)
