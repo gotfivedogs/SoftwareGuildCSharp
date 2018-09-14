@@ -10,3 +10,11 @@ MinCat("java", "Hello") -> "javaello"
 public string MinCat(string a, string b) {
 
 }
+
+find difference between two strings
+if the same, concatenate,
+if a is longer, a.Length-b.Length
+5-2=3
+a.substring(3,b.Length)
+
+h

@@ -4,7 +4,6 @@ namespace Warmups.BLL
 {
     public class Strings
     {
-
         public string SayHi(string name)
         {
             return "Hello " + name + "!";
@@ -190,7 +189,7 @@ namespace Warmups.BLL
             }
             else
             {
-                return str.Substring(0, str.Length - 2) + str.Substring(str.Length-1, 1) + str.Substring(str.Length-2, 1);
+                return str.Substring(0, str.Length - 2) + str.Substring(str.Length - 1, 1) + str.Substring(str.Length - 2, 1);
             }
         }
 
@@ -215,17 +214,49 @@ namespace Warmups.BLL
 
         public string MinCat(string a, string b)
         {
-            throw new NotImplementedException();
+            if (a.Length > b.Length)
+            {
+                return a.Substring(a.Length - b.Length, b.Length) + b;
+            }
+            else
+            if (a.Length < b.Length)
+            {
+                return a + b.Substring(b.Length - a.Length, a.Length);
+            }
+            else
+            {
+                return a + b;
+            }
         }
 
         public string TweakFront(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length > 0)
+            {
+                if (str.Substring(0, 2) == "ab")
+                {
+                    return str;
+                }
+                if (str.Substring(0, 1) == "a")
+                {
+                    return str.Remove(1, 1);
+                }
+                else if (str.Substring(1, 1) == "b")
+                {
+                    return str.Remove(0, 1);
+                }
+                else
+                {
+                    return str.Substring(2);
+                }
+            }
+            return str;
         }
 
         public string StripX(string str)
         {
-            throw new NotImplementedException();
+            str = str.TrimStart('x');
+            return str.TrimEnd('x');
         }
     }
 }
