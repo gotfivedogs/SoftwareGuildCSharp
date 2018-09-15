@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Warmups.BLL
 {
@@ -84,87 +85,177 @@ namespace Warmups.BLL
 
         public string NotString(string s)
         {
-            throw new NotImplementedException();
+            if (s.StartsWith("not"))
+            {
+                return s;
+            }
+            return "not " + s;
         }
 
         public string MissingChar(string str, int n)
         {
-            throw new NotImplementedException();
+            return str = str.Remove(n, 1);
         }
-
         public string FrontBack(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length < 2)
+            {
+                return str;
+            }
+            return str = str.Substring(str.Length - 1, 1) + str.Substring(1, str.Length - 2) + str.Substring(0, 1);
         }
 
         public string Front3(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length < 3)
+            {
+                return str + str + str;
+            }
+            return str.Substring(0, 3) + str.Substring(0, 3) + str.Substring(0, 3);
         }
 
         public string BackAround(string str)
         {
-            throw new NotImplementedException();
+            return str.Substring(str.Length - 1) + str + str.Substring(str.Length - 1);
         }
 
         public bool Multiple3or5(int number)
         {
-            throw new NotImplementedException();
+            if ((number % 3 == 0) || (number % 5 == 0))
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool StartHi(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length < 2)
+            {
+                return false;
+            }
+            if ((str.Length == 2) && (str.Substring(0, 2) == "hi"))
+            {
+                return true;
+            }
+            if (((str.Substring(0, 3) == "hi ") || (str.Substring(0, 3) == "hi,")))
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool IcyHot(int temp1, int temp2)
         {
-            throw new NotImplementedException();
+            if (((temp1 >= 120) && (temp2 <= 0)) || ((temp2 >= 120) && (temp1 <= 0)))
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool Between10and20(int a, int b)
         {
-            throw new NotImplementedException();
+            if (((a >= 10) && (a <= 20)) || (b >= 10) && (b <= 20))
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool HasTeen(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            if (((a >= 13) && (a <= 19))
+                ||
+                ((b >= 13) && (b <= 19))
+                ||
+                ((b >= 13) && (b <= 19)))
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool SoAlone(int a, int b)
         {
-            throw new NotImplementedException();
+            if (((a >= 13) && (a <= 19)) && (b >= 13) && (b <= 19))
+            {
+                return false;
+            }
+            else if (((a >= 13) && (a <= 19)) || (b >= 13) && (b <= 19))
+            {
+                return true;
+            }
+            return false;
         }
 
         public string RemoveDel(string str)
         {
-            throw new NotImplementedException();
+            if (str.Contains("del"))
+            {
+                return str.Replace("del", "");
+            }
+            return str;
         }
 
         public bool IxStart(string str)
         {
-            throw new NotImplementedException();
+            if (str.Substring(1, 2) == "ix")
+            {
+                return true;
+            }
+            return false;
         }
 
         public string StartOz(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length <= 1)
+            {
+                return "";
+            }
+            if ((str.Substring(0, 1) == "o") && (str.Substring(1, 1) == "z"))
+            {
+                return "oz";
+            }
+            else if (str.Substring(0, 1) == "o")
+            {
+                return str.Substring(0, 1);
+            }
+            else if (str.Substring(1, 1) == "z")
+            {
+                return str.Substring(1, 1);
+            }
+            return str.Substring(0, 2);
         }
 
         public int Max(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            int d = Math.Max(a, b);
+            return Math.Max(d, c);
         }
 
         public int Closer(int a, int b)
         {
-            throw new NotImplementedException();
+            if (Math.Abs(10 - a) > Math.Abs(10 - b))
+            {
+                return b;
+            }
+            if (Math.Abs(10 - a) < Math.Abs(10 - b))
+            {
+                return a;
+            }
+            return 0;
         }
 
         public bool GotE(string str)
         {
-            throw new NotImplementedException();
+            var counted = str.GroupBy(c => c)
+                   .Select(g => new { g.Key, Count = g.Count() });
+
+            foreach (var result in counted)
+            {
+                Console.WriteLine("{0} = {1}", result.Key, result.Count);
+            }
         }
 
         public string EndUp(string str)

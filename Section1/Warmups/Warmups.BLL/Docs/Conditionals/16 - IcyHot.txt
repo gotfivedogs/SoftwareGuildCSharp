@@ -1,4 +1,5 @@
-Given two temperatures, return true if one is less than 0 and the other is greater than 100. 
+Given two temperatures, return true if one is less than 0 and the other 
+ris greater than 100. 
 
 IcyHot(120, -1) -> true
 IcyHot(-1, 120) -> true
