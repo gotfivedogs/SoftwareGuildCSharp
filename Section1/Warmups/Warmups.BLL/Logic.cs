@@ -33,42 +33,121 @@ namespace Warmups.BLL
 
         public bool PlayOutside(int temp, bool isSummer)
         {
-            throw new NotImplementedException();
+            if (temp >= 60)
+            {
+                return ((temp <= 90) || (isSummer));
+            }
+            return false;
         }
 
         public int CaughtSpeeding(int speed, bool isBirthday)
         {
-            throw new NotImplementedException();
+            int Ticket = 0;
+            if (isBirthday)
+            {
+                speed = speed - 5;
+            }
+            if (speed >= 85)
+            {
+                Ticket = 2;
+            }
+            else if ((speed >= 61) && (speed <= 80))
+            {
+                Ticket = 1;
+            }
+            return Ticket;
         }
-
         public int SkipSum(int a, int b)
         {
-            throw new NotImplementedException();
+            int Sum = a + b;
+            if ((Sum >= 10) && (Sum <= 19))
+            {
+                Sum = 20;
+            }
+            return Sum;
         }
 
         public string AlarmClock(int day, bool vacation)
         {
-            throw new NotImplementedException();
+            String Alarm = "7:00";
+            if (vacation)
+            {
+                if ((day > 0) && (day <= 6))
+                {
+                    Alarm = "10:00";
+                }
+                else
+                {
+                    Alarm = "Off";
+                }
+            }
+            else
+            {
+                if ((day == 0) || (day == 6))
+                {
+                    Alarm = "10:00";
+                }
+            }
+            return Alarm;
         }
 
         public bool LoveSix(int a, int b)
         {
-            throw new NotImplementedException();
+            bool EqualsSix = false;
+            if (a == 6 || b == 6)
+            {
+                EqualsSix = true;
+            }
+            else if ((Math.Abs(a + b) == 6) || (Math.Abs(a - b) == 6))
+            {
+                EqualsSix = true;
+            }
+            else
+            {
+                EqualsSix = false;
+            }
+            return EqualsSix;
         }
 
         public bool InRange(int n, bool outsideMode)
         {
-            throw new NotImplementedException();
+            bool isCorrectMode = true;
+            if (outsideMode)
+            {
+                if ((n >= 1) && (n <= 10))
+                {
+                    isCorrectMode = false;
+                }
+            }
+            else
+            {
+                if ((n <= 1) || (n >= 10))
+                {
+                    isCorrectMode = false;
+                }
+            }
+            return isCorrectMode;
         }
-
         public bool SpecialEleven(int n)
         {
-            throw new NotImplementedException();
+            bool special = false;
+            if ((n % 11 == 0) || (n - 1) % 11 == 0)
+            {
+                special = true;
+            }
+            return special;
         }
 
         public bool Mod20(int n)
         {
-            throw new NotImplementedException();
+            if ((((n - 1) % 20 == 0))|| ((n - 2) % 20 == 0))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool Mod35(int n)
