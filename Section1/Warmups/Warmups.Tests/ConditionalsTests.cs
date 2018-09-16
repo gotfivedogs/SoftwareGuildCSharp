@@ -17,7 +17,7 @@ namespace Warmups.Tests
             var actual = _conditionals.AreWeInTrouble(a, b);
             Assert.AreEqual(expected, actual);
         }
-        
+
         [TestCase(false, false, true)]
         [TestCase(true, false, false)]
         [TestCase(false, true, true)]
@@ -26,7 +26,7 @@ namespace Warmups.Tests
             var actual = _conditionals.CanSleepIn(a, b);
             Assert.AreEqual(expected, actual);
         }
-        
+
         [TestCase(1, 2, 3)]
         [TestCase(3, 2, 5)]
         [TestCase(2, 2, 8)]
@@ -35,7 +35,7 @@ namespace Warmups.Tests
             var actual = _conditionals.SumDouble(a, b);
             Assert.AreEqual(expected, actual);
         }
-        
+
         [TestCase(23, 4)]
         [TestCase(10, 11)]
         [TestCase(21, 0)]
@@ -257,6 +257,5 @@ namespace Warmups.Tests
             var actual = _conditionals.EveryNth(s, n);
             Assert.AreEqual(expected, actual);
         }
-
     }
 }

@@ -249,23 +249,34 @@ namespace Warmups.BLL
 
         public bool GotE(string str)
         {
-            var counted = str.GroupBy(c => c)
-                   .Select(g => new { g.Key, Count = g.Count() });
-
-            foreach (var result in counted)
+            int countE = 0;
+            for (int i = 0; i < str.Length; i++)
             {
-                Console.WriteLine("{0} = {1}", result.Key, result.Count);
+                if (str[i] == 'e')
+                {
+                    countE = countE + 1;
+                }
             }
+            return countE > 0 && countE <= 3;
         }
 
         public string EndUp(string str)
         {
-            throw new NotImplementedException();
+            if (str.Length < 3)
+            {
+                return str.ToUpper();
+            }
+            return str.Substring(0, str.Length - 3) + str.Substring(str.Length - 3, 3).ToUpper();
         }
 
         public string EveryNth(string str, int n)
         {
-            throw new NotImplementedException();
+            string everyNth = "";
+            for (int i = 0; i < str.Length; i += n)
+            {
+                everyNth += str.Substring(i, 1);
+            }
+            return everyNth;
         }
     }
 }
