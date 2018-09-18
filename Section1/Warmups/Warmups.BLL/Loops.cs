@@ -7,22 +7,51 @@ namespace Warmups.BLL
 
         public string StringTimes(string str, int n)
         {
-            throw new NotImplementedException();
+            string newString = "";
+            for (int i = 0; i < n; i++)
+            {
+                newString += str;
+            }
+            return newString;
         }
 
         public string FrontTimes(string str, int n)
         {
-            throw new NotImplementedException();
+            string frontThree = str.Substring(0, 3);
+            string newString = "";
+            for (int i = 0; i < n; i++)
+            {
+                newString += frontThree;
+            }
+            return newString;
         }
-
         public int CountXX(string str)
         {
-            throw new NotImplementedException();
+            int count = 0;
+            for (int i = 0; i < str.Length - 1; i++)
+            {
+                if ((str.Substring(i, 1) + str.Substring(i + 1, 1) == "xx"))
+                {
+                    count += 1;
+                }
+            }
+            return count;
         }
 
         public bool DoubleX(string str)
         {
-            throw new NotImplementedException();
+            bool amIDoubleX = false;
+            int count = 0;
+            while (true)
+            {
+
+            }
+            for (int i = 0; i < str.Length-1; i++)
+            {
+              
+
+            }
+            return amIDoubleX;
         }
 
         public string EveryOther(string str)

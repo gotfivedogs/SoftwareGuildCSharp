@@ -140,7 +140,7 @@ namespace Warmups.BLL
 
         public bool Mod20(int n)
         {
-            if ((((n - 1) % 20 == 0))|| ((n - 2) % 20 == 0))
+            if ((((n - 1) % 20 == 0)) || ((n - 2) % 20 == 0))
             {
                 return true;
             }
@@ -152,38 +152,73 @@ namespace Warmups.BLL
 
         public bool Mod35(int n)
         {
-            throw new NotImplementedException();
+            bool FizzBuzz = false;
+            if (n % 15 != 0)
+            {
+                if ((n % 3 == 0) || (n % 5 == 0))
+                {
+                    FizzBuzz = true;
+                }
+            }
+            return FizzBuzz;
         }
 
         public bool AnswerCell(bool isMorning, bool isMom, bool isAsleep)
         {
-            throw new NotImplementedException();
+            if (!isAsleep)
+            {
+                if ((isMorning) && (!isMom))
+                {
+                    return false;
+                }
+                return true;
+            }
+            return false;
         }
-
         public bool TwoIsOne(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            return (((a + b == c) || (a + c == b) || b + c == a));
         }
-
         public bool AreInOrder(int a, int b, int c, bool bOk)
         {
-            throw new NotImplementedException();
+            if (!bOk)
+            {
+                return b > a && c > b;
+            }
+            return c > b;
         }
 
         public bool InOrderEqual(int a, int b, int c, bool equalOk)
         {
-            throw new NotImplementedException();
+            if (!equalOk)
+            {
+                return a < b && b < c;
+            }
+            return a <= b && b <= c;
         }
 
         public bool LastDigit(int a, int b, int c)
         {
-            throw new NotImplementedException();
+            int aEnd = a % 10;
+            int bEnd = b % 10;
+            int cEnd = c % 10;
+            return ((aEnd == bEnd) || (aEnd == cEnd) || (cEnd == bEnd));
         }
 
         public int RollDice(int die1, int die2, bool noDoubles)
         {
-            throw new NotImplementedException();
+            if (noDoubles)
+            {
+                if (die1==die2)
+                {
+                    die2 = die2 + 1;
+                    if (die2==7)
+                    {
+                        die2 = 1;
+                    }
+                }
+            }
+            return die1 + die2;
         }
-
     }
 }
