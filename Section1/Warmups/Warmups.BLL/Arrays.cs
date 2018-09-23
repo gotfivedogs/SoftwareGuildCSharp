@@ -41,7 +41,10 @@ namespace Warmups.BLL
         }
         public int[] RotateLeft(int[] numbers)
         {
-            throw new NotImplementedException();
+            int Temp = numbers[1];
+            int[] Rotated  = { numbers[1],numbers[2],numbers[3]};
+            return Rotated;
+            
         }
         public int[] Reverse(int[] numbers)
         {
